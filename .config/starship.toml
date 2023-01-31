@@ -1,0 +1,59 @@
+[username]
+style_user = "red bold"
+style_root = "red bold"
+# format = "[ Mr@Puckk]($style) 👽  "
+format = " Mr[@]($style)Puckk 👽 "
+
+# format = "[$user]($style) 👽"
+# format = "[$my_string]($style)👽 "
+disabled = false
+show_always = true
+
+# configure directory
+[directory]
+read_only = " "
+truncation_length = 20
+truncate_to_repo = true # truncates directory to root folder if in github repo
+
+[cmd_duration]
+min_time = 100
+show_milliseconds = false
+disabled = false
+style = "bold italic red"
+
+# Git theme config
+[git_branch]
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = ""
+
+[c]
+format = "via [$symbol$name ]($style)"
+detect_extensions =  ["c", "h", "cpp"]
+
+[buf]
+format = "via [$symbol]($style)"
+
+[cmake]
+format = "via [$symbol]($style)"
+
+[lua]
+format = "via [🌕 $version](bold blue) "
+
+[nodejs]
+format = 'via [$symbol]($style)'
+
+[php]
+format = 'via [$symbol]($style)'
+
+[python]
+symbol = " "
+format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
+
+[rust]
+format = 'via [$symbol]($style)'

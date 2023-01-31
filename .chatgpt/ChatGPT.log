@@ -1,0 +1,60 @@
+[2023-01-30][05:20:08][chatgpt::app::setup][[92mINFO[0m] stepup
+[2023-01-30][05:20:08][chatgpt::app::setup][[92mINFO[0m] global_shortcut: ``
+[2023-01-30][05:20:08][chatgpt::app::setup][[92mINFO[0m] global_shortcut_parse_error: [AcceleratorParseError]: Unexpected empty token while parsing accelerator
+[2023-01-30][05:20:08][chatgpt::app::setup][[92mINFO[0m] stepup::run_check_update
+[2023-01-30][05:20:08][chatgpt::utils][[92mINFO[0m] run_check_update: silent=false has_msg=None
+[2023-01-30][05:20:08][attohttpc][[34mDEBUG[0m] trying to connect to lencx.github.io:443
+[2023-01-30][05:20:08][attohttpc][[34mDEBUG[0m] trying to connect to 185.199.110.153:443
+[2023-01-30][05:20:08][attohttpc][[34mDEBUG[0m] successfully connected to 185.199.110.153:443, took 36ms
+[2023-01-30][05:20:09][attohttpc][[34mDEBUG[0m] GET /ChatGPT/install.json HTTP/1.1
+[2023-01-30][05:20:09][attohttpc][[34mDEBUG[0m] creating a length body reader
+[2023-01-30][05:20:09][attohttpc][[34mDEBUG[0m] creating gzip decoder
+[2023-01-30][05:20:09][attohttpc][[34mDEBUG[0m] status code 200
+[2023-01-30][05:58:29][chatgpt::app::setup][[92mINFO[0m] stepup
+[2023-01-30][05:58:29][chatgpt::app::setup][[92mINFO[0m] global_shortcut: ``
+[2023-01-30][05:58:29][chatgpt::app::setup][[92mINFO[0m] global_shortcut_parse_error: [AcceleratorParseError]: Unexpected empty token while parsing accelerator
+[2023-01-30][05:58:29][chatgpt::app::setup][[92mINFO[0m] stepup::run_check_update
+[2023-01-30][05:58:29][chatgpt::utils][[92mINFO[0m] run_check_update: silent=false has_msg=None
+[2023-01-30][05:58:29][attohttpc][[34mDEBUG[0m] trying to connect to lencx.github.io:443
+[2023-01-30][05:58:29][attohttpc][[34mDEBUG[0m] trying to connect to 185.199.109.153:443
+[2023-01-30][05:58:29][attohttpc][[34mDEBUG[0m] successfully connected to 185.199.109.153:443, took 38ms
+[2023-01-30][05:58:29][attohttpc][[34mDEBUG[0m] GET /ChatGPT/install.json HTTP/1.1
+[2023-01-30][05:58:29][attohttpc][[34mDEBUG[0m] creating a length body reader
+[2023-01-30][05:58:29][attohttpc][[34mDEBUG[0m] creating gzip decoder
+[2023-01-30][05:58:29][attohttpc][[34mDEBUG[0m] status code 200
+[2023-01-30][05:59:03][chatgpt::app::setup][[92mINFO[0m] stepup
+[2023-01-30][05:59:03][chatgpt::app::setup][[92mINFO[0m] global_shortcut: ``
+[2023-01-30][05:59:03][chatgpt::app::setup][[92mINFO[0m] global_shortcut_parse_error: [AcceleratorParseError]: Unexpected empty token while parsing accelerator
+[2023-01-30][05:59:03][chatgpt::app::setup][[92mINFO[0m] stepup::run_check_update
+[2023-01-30][05:59:03][chatgpt::utils][[92mINFO[0m] run_check_update: silent=false has_msg=None
+[2023-01-30][05:59:03][attohttpc][[34mDEBUG[0m] trying to connect to lencx.github.io:443
+[2023-01-30][05:59:03][attohttpc][[34mDEBUG[0m] trying to connect to 185.199.111.153:443
+[2023-01-30][05:59:03][attohttpc][[34mDEBUG[0m] successfully connected to 185.199.111.153:443, took 39ms
+[2023-01-30][05:59:04][attohttpc][[34mDEBUG[0m] GET /ChatGPT/install.json HTTP/1.1
+[2023-01-30][05:59:04][attohttpc][[34mDEBUG[0m] creating a length body reader
+[2023-01-30][05:59:04][attohttpc][[34mDEBUG[0m] creating gzip decoder
+[2023-01-30][05:59:04][attohttpc][[34mDEBUG[0m] status code 200
+[2023-01-30][08:23:47][chatgpt::app::setup][[92mINFO[0m] stepup
+[2023-01-30][08:23:47][chatgpt::app::setup][[92mINFO[0m] global_shortcut: ``
+[2023-01-30][08:23:47][chatgpt::app::setup][[92mINFO[0m] global_shortcut_parse_error: [AcceleratorParseError]: Unexpected empty token while parsing accelerator
+[2023-01-30][08:23:47][chatgpt::app::setup][[92mINFO[0m] stepup::run_check_update
+[2023-01-30][08:23:47][chatgpt::utils][[92mINFO[0m] run_check_update: silent=false has_msg=None
+[2023-01-30][08:23:47][attohttpc][[34mDEBUG[0m] trying to connect to lencx.github.io:443
+[2023-01-30][08:23:47][attohttpc][[34mDEBUG[0m] trying to connect to 185.199.108.153:443
+[2023-01-30][08:23:47][attohttpc][[34mDEBUG[0m] successfully connected to 185.199.108.153:443, took 33ms
+[2023-01-30][08:23:47][attohttpc][[34mDEBUG[0m] GET /ChatGPT/install.json HTTP/1.1
+[2023-01-30][08:23:47][attohttpc][[34mDEBUG[0m] creating a length body reader
+[2023-01-30][08:23:47][attohttpc][[34mDEBUG[0m] creating gzip decoder
+[2023-01-30][08:23:47][attohttpc][[34mDEBUG[0m] status code 200
+[2023-01-30][08:24:01][chatgpt::app::setup][[92mINFO[0m] stepup
+[2023-01-30][08:24:01][chatgpt::app::setup][[92mINFO[0m] global_shortcut: ``
+[2023-01-30][08:24:01][chatgpt::app::setup][[92mINFO[0m] global_shortcut_parse_error: [AcceleratorParseError]: Unexpected empty token while parsing accelerator
+[2023-01-30][08:24:01][chatgpt::app::setup][[92mINFO[0m] stepup::run_check_update
+[2023-01-30][08:24:01][chatgpt::utils][[92mINFO[0m] run_check_update: silent=false has_msg=None
+[2023-01-30][08:24:01][attohttpc][[34mDEBUG[0m] trying to connect to lencx.github.io:443
+[2023-01-30][08:24:01][attohttpc][[34mDEBUG[0m] trying to connect to 185.199.110.153:443
+[2023-01-30][08:24:01][attohttpc][[34mDEBUG[0m] successfully connected to 185.199.110.153:443, took 37ms
+[2023-01-30][08:24:01][attohttpc][[34mDEBUG[0m] GET /ChatGPT/install.json HTTP/1.1
+[2023-01-30][08:24:01][attohttpc][[34mDEBUG[0m] creating a length body reader
+[2023-01-30][08:24:01][attohttpc][[34mDEBUG[0m] creating gzip decoder
+[2023-01-30][08:24:01][attohttpc][[34mDEBUG[0m] status code 200
