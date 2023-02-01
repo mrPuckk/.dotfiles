@@ -46,28 +46,35 @@ local source_icons = {
   path = "",
 }
 
--- local source_alt = {
---   nvim_lsp = "LSP",
---   copilot = "Copilot",
---   cmp_tabnine = "Tabnine",
---   buffer = "Buffer",
---   path = "Path",
--- }
-
+-- lvim.builtin.cmp.window.documentation = false
+lvim.builtin.cmp.cmdline.enable = false
 lvim.builtin.cmp.window = {
-    completion = {
-      border = "double",
-      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuThumb,Search:Error",
-      side_padding = 0,
-      col_offset = -4,
+  documentation = {
+    border = "rounded",
+    winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+  },
+
+  completion = {
+    border = "rounded",
+    winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuThumb,Search:Error",
+    side_padding = 0,
+    col_offset = -4,
   },
 }
-
 
 lvim.builtin.cmp.snippet = {
   expand = function(args)
     require("luasnip").lsp_expand(args.body)
   end,
+}
+
+--Check in Manual: ":h cmp"
+lvim.builtin.cmp.sources = {
+  {name = "nvim_lsp", max_item_count = 12,  group_index = 1},
+  {name = "copilot",  max_item_count = 4, keyword_length = 3, group_index = 1},
+
+  {name = "buffer ", max_item_count = 5, group_index = 3},
+  {name = "path", max_item_count = 5, group_index = 3},
 }
 
 lvim.builtin.cmp.formatting = {
@@ -116,54 +123,3 @@ lvim.builtin.cmp.formatting = {
   end,
 }
 
--- local ts_utils = require("nvim-treesitter.ts_utils")
-
---Check in Manual: ":h cmp"
-lvim.builtin.cmp.sources = {
-  {name = "nvim_lsp", priority = 1,
-                      max_item_count = 12,
-                      keyword_length = 1,
-                      group_index = 1,
-
--- Filter function for suggesting items.
-    -- entry_filter = function(entry, context)
-    --   local kind = entry:get_kind()
-    --   local node = ts_utils.get_node_at_cursor():type()
-
-    --   -- smarter filter for arguments calls
-    --   if node == "arguments" then
-    --     if kind == 6 then
-    --       return true
-    --     else
-    --       return false
-    --     end
-    --   end
-
-      -- -- smarter filter for function calls
-      -- local line = context.cursor_line
-      -- local col = context.cursor.col
-      -- local char_before_cursor = string.sub(line, col - 1, col - 1)
-
-      -- if char_before_cursor == "." then
-      --   if kind == 2 or kind == 5 then
-      --     return true
-      --   else
-      --     return false
-      --   end
-      -- elseif string.match(line, "^%s*%w*$") then
-      --   if kind == 2 or kind == 5 then
-      --     return true
-      --   else
-      --     return false
-      --   end
-      -- end
-
-    --   return true
-    -- end,
-  },
-
-  {name = "copilot", priority = 2, max_item_count = 3, keyword_length = 3, group_index = 2},
-  -- {name = "cmp_tabnine", priority = 2, max_item_count = 2,keyword_length = 4, group_index = 2},
-  {name = "buffer ", priority = 4, max_item_count = 5, group_index = 3},
-  {name = "path", priority = 5, max_item_count = 5, keyword_length = 6, group_index = 3},
-}
