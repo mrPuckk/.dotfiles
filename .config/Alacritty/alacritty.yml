@@ -3,7 +3,7 @@
 # environment variables. Some entries may override variables
 # set by alacritty it self.
 import:
-  - /Users/tuongquangphung/Downloads/alacritty-master/dracula.yml
+  - /Users/tuongphung/my_dependencies/alacritty-master/dracula.yml
   # -/Users/tuongquangphung/.config/Alacritty/alacritty-theme/themes/breeze.yaml
 # env:
   # TERM env customization.

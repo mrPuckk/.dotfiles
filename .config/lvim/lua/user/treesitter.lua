@@ -29,7 +29,7 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell", "markdown" }
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.auto_install = true
+lvim.builtin.treesitter.auto_install = false
 
 lvim.builtin.treesitter.textobjects = {
   select = {
