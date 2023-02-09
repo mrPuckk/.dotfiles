@@ -21,10 +21,10 @@ local attach_to_buffer = function(output_buf,pattern, command, timer)
           end
         end
 
-        vim.api.nvim_buf_set_lines(output_buf, 0, -1, false, {"OUTPUT: "})
+        vim.api.nvim_buf_set_lines(output_buf, 0, -1, false, {})
 
         local job = vim.fn.jobstart(command, {
-          stdout_buffered = true,
+          stout_buffered = true,
           on_stdout = append_data,
           on_stderr = append_data,
         })
@@ -46,33 +46,93 @@ end
 --@arg: executable_name: The name of the executable file
 --@arg: run_output_buf: The buffer number for the output of the executable
 vim.api.nvim_create_user_command("RunCpp", function()
-    print("Building Cpp Project...")
+  -- Stop any autocmds before starting a new one
+  vim.api.nvim_command("AutoRunStop")
 
--- Stop any autocmds before starting a new one
-    vim.api.nvim_command("AutoRunStop")
+  local height = 8
+  local log_buf = nil
+  local result_buf = nil
+  local main_buf = vim.api.nvim_get_current_buf()
 
--- Generate the build directory and generate the CMake's files
-    local cmake_command = {"cmake", "-Bbuild", "-H."}
-    local log_buf = tonumber(vim.fn.input("Enter buffer numbr for Logging: "))
-    attach_to_buffer(log_buf, "main.cpp", cmake_command)
+  -- Check if buffers are already created
+  local bufnr_list = vim.api.nvim_list_bufs()
+  for i, buf_num in ipairs(bufnr_list) do
+      local buf_name = vim.api.nvim_buf_get_name(buf_num)
+      if buf_name == "log" then
+          log_buf = buf_num
+      elseif buf_name == "result" then
+          result_buf = buf_num
+      end
+  end
 
--- Build the project
-    local build_command = {"cmake", "--build", "./build"}
-    coroutine.wrap(attach_to_buffer)(log_buf, "main.cpp", build_command)
+  if log_buf == nil then
+      -- Create new buffer for logs if it does not exist
+      vim.api.nvim_command("tabnew")
+      vim.api.nvim_buf_set_name(vim.api.nvim_get_current_buf(), "log")
+      log_buf = vim.api.nvim_get_current_buf()
+      vim.api.nvim_buf_set_option(log_buf, 'buftype', 'nofile')
+      vim.api.nvim_set_current_buf(main_buf)
+  end
 
--- Print the output of the executable
-    vim.api.nvim_command("GetCppOutput")
-end, {})
+  if result_buf == nil then
+      -- Create new buffer for results if it does not exist
+      vim.api.nvim_command("new")
+      vim.api.nvim_buf_set_name(vim.api.nvim_get_current_buf(), "result")
+      result_buf = vim.api.nvim_get_current_buf()
+      vim.api.nvim_buf_set_option(result_buf, 'buftype', 'nofile')
+      vim.api.nvim_win_set_height(vim.api.nvim_get_current_win(), height)
+  end
 
---@TODO: Add a check to see if the executable exists at path "./bin/" ... <executable_name>
---@arg: executable_name: The name of the executable file
---@arg: run_output_buf: The buffer number for the output of the executable
-vim.api.nvim_create_user_command("GetCppOutput", function()
-  local run_output_buf = tonumber(vim.fn.input("Enter buffer number for run output: "))
-  local executable_name = vim.fn.input("Enter the name of the executable file: ")
+  -- Generate the build directory and generate the CMake's files
+  local cmake_command = {"cmake", "-Bbuild", "-H."}
+  attach_to_buffer(log_buf, "main.cpp", cmake_command)
+
+  -- Build the project
+  local build_command = {"cmake", "--build", "./build"}
+  coroutine.wrap(attach_to_buffer)(log_buf, "main.cpp", build_command)
+
+  -- Print the output of the executable
+  local executable_name = vim.fn.input("The name of the Executable file: ")
   local run_command = {"./bin/" .. executable_name}
-  attach_to_buffer(run_output_buf, "main.cpp", run_command)
+  attach_to_buffer(result_buf, "main.cpp", run_command)
+
 end, {})
+
+-- local function create_split_buffer(height, width)
+--   local cur_buf = vim.api.nvim_get_current_buf()
+--   local win_id = vim.api.nvim_open_win(cur_buf, false, {relative = 'win', height = height, width = width, bufpos={100,10}})
+--   vim.api.nvim_win_set_cursor(win_id, {1, 1})
+-- end
+
+-- --@TODO: Add a check to see if the executable exists at path "./bin/" ... <executable_name>
+-- --@arg: executable_name: The name of the executable file
+-- --@arg: run_output_buf: The buffer number for the output of the executable
+-- vim.api.nvim_create_user_command("CreateSplitBuffer", function(args)
+--   local height = tonumber(args[0]) or 38
+
+--   local cur_win = vim.api.nvim_get_current_win()
+
+--   vim.api.nvim_command("new")
+--   vim.api.nvim_win_set_height(cur_win, height)
+--   print(vim.api.nvim_get_current_buf())
+
+--   vim.api.nvim_command("vnew")
+--   print(vim.api.nvim_get_current_buf())
+-- end, {})
+
+-- vim.api.nvim_create_user_command("CreateBuffer", function()
+--   print(cur_buf)
+-- end, {})
+
+-- --@TODO: Add a check to see if the executable exists at path "./bin/" ... <executable_name>
+-- --@arg: executable_name: The name of the executable file
+-- --@arg: run_output_buf: The buffer number for the output of the executable
+-- vim.api.nvim_create_user_command("GetCppOutput", function()
+--   local run_output_buf = tonumber(vim.fn.input("Enter buffer number for run output: "))
+--   local executable_name = vim.fn.input("Enter the name of the executable file: ")
+--   local run_command = {"./bin/" .. executable_name}
+--   attach_to_buffer(run_output_buf, "main.cpp", run_command)
+-- end, {})
 
 --@TODO: stop any autocmd spawed before  
 vim.api.nvim_create_user_command("AutoRunStop", function()
