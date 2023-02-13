@@ -64,4 +64,24 @@ lvim.builtin.terminal.active = true
 
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.view.preserve_window_proportions = true
+----------------------------
+--------- TEST ----------
+----------------------------
+lvim.builtin.project.active = true
+lvim.builtin.project.patterns = {".txt", ".json"}
+-- local status_ok, nvim_tree = pcall(require, "nvim-tree")
+-- if not status_ok then
+--   return
+-- end
+
+-- nvim_tree.setup {
+--   open_on_tab = false,
+--   view = {
+--     preserve_window_proportions = true,
+--     side = 'right',
+--   }
+-- }
+
+
 

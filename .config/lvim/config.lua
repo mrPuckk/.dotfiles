@@ -9,13 +9,10 @@ reload('user.alpha')
 reload('user.keymaps')
 reload('user.options')
 reload('user.cmp')
-
 reload('user.lsp')
-
 reload('user.treesitter')
--- reload('user.nlsp')
-
 reload('user.autosave')
+reload('user.lspsaga')
 ----------------------------
 --------- PLUGINS  ---------
 ----------------------------
@@ -52,6 +49,9 @@ lvim.plugins = {
   {'onsails/lspkind.nvim'},
 
   --
+  {'rcarriga/nvim-notify'},
+
+  --
   {
     "jackMort/ChatGPT.nvim",
       config = function()
@@ -65,5 +65,16 @@ lvim.plugins = {
         "nvim-telescope/telescope.nvim"
       }
   },
+  {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    -- config = function()
+    --     require("lspsaga").setup({})
+    -- end,
+    requires = {
+        {"nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter"}
+    }
+  },
 }
+
 
